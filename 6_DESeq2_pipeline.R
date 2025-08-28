@@ -1,3 +1,6 @@
+##### Code by Leon Hofmann
+
+
 # Load required libraries
 library(DESeq2)
 library(dplyr)
@@ -128,7 +131,7 @@ keep <- rowSums(counts(dds)) >= 10
 dds <- dds[keep,]
 colnames(dds)
 
-#write.table(normalized_dds, "counts_Normalized_Zt46_invitro_inplanta.csv", sep = "\t")
+#write.table(normalized_dds, "counts_Normalized_Zpa796_invitro_inplanta.csv", sep = "\t")
 
 # Calculate TMP:
 # Normalize for gene length (reads per kilobase - RPK)
@@ -137,7 +140,7 @@ x_count_table <- count_table/c(gene_length)
 
 # Normalize to read depth (here depth = colSums of the count matrix):
 tpm <- t(t(x_count_table)*1e6/colSums(x_count_table))
-write.table(tpm, "tpm_counts_Zpa796_invitro_inplanta_DEseq2_final.csv", sep = "\t", col.names = NA)
+write.table(tpm, "tpm_counts_Zpa796_invitro_inplanta_DEseq2.csv", sep = "\t", col.names = NA)
 
 ########################################### CONTRASTS ###############################################
 
